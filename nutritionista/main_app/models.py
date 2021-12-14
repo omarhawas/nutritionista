@@ -11,7 +11,7 @@ class Day(models.Model):
     
 
     def __str__(self):
-        return self.date
+        return f"{self.date}"
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'day_id': self.id})
