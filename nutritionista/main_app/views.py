@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from .models import Day
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 
 
@@ -21,6 +22,20 @@ def days_index(request):
 def days_detail(request, day_id):
     day = Day.objects.get(id=day_id)
     return render(request, 'days/detail.html', {'day': day})
+
+class DayCreate(CreateView):
+    model = Day
+    fields = '__all__'
+    success_url = '/days/'
+
+class DayUpdate(UpdateView):
+    model = Day
+    fields = '__all__'
+
+class DayDelete(DeleteView):
+    model = Day
+    success_url = '/days/'
+
 
 
 #Add day form
