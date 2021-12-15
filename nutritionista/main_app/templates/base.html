@@ -33,6 +33,8 @@
             <li><a href="{% url 'index' %}">My Days</a></li>
             <li><a href="{% url 'foods_index' %}">View All Foods</a></li>
             <li><a href="{% url 'logout' %}">Log Out</a></li>
+            <li><a href="{% url 'days_create' %}">Add a Day</a></li>
+            <li><a href="{% url 'index' %}">View All My Days</a></li>
             {% else %}
             <li><a href="{% url 'signup' %}">Sign Up</a></li>
             <li><a href="{% url 'login' %}">Log In</a></li>
