@@ -22,14 +22,19 @@
     <table class="striped">
       <thead>
         <tr>
-          <th>Date</th>
+          <th>Food</th>
           <th>Meal</th>
+          <th>Portion</th>
+          <th>Calories</th>
         </tr>
       </thead>
       <tbody>
         {% for meals in day.meals_set.all %}
         <tr>
-          <td>{{meals.date}}</td>
+          <td>{{meals.food}}</td>
+          <td>{{meals.meal}}</td>
+          <td>{{meals.portion}}</td>
+          <td>{{meals.calories}}</td>
           <td>{{mdeals.get_meal_display}}</td>
         </tr>
         {% endfor %}
