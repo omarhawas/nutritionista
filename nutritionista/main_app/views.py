@@ -9,8 +9,6 @@ from .forms import MealsForm
 
 
 
-
-# Create your views here.
 def home(request):
     return render(request, 'home.html')
 
@@ -44,20 +42,6 @@ class DayDelete(DeleteView):
     model = Day
     success_url = '/days/'
 
-
-
-#Add day form
-# def add_day(request, user_id):
-# 	# create the ModelForm using the data in request.POST
-#   form = DayForm(request.POST)
-#   # validate the form
-#   if form.is_valid():
-#     # don't save the form to the db until it
-#     # has the user_id assigned
-#     new_day = form.save(commit=False)
-#     new_day.user_id = user_id
-#     new_day.save()
-#   return redirect('detail', user_id=user_id)
 def signup(request):
     error_message = ''
     try:
@@ -78,8 +62,6 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
-
-
 
 class FoodList(ListView):
   model = Food
