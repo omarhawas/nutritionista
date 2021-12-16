@@ -15,9 +15,9 @@
     </div>
   </div>
   <div class="col s6">
-    <form action="{% url 'add_meals' day.id %}" method="post" class="col s6"></form>
+    <form action="{% url 'add_meals' day.id %}" method="post">
       {% csrf_token %}{{ meals_form.as_p }}
-      <input type="submit" class="btn" value="Add Food" />
+      <input type="submit" class="btn" value="Add To Meal" />
     </form>
     <table class="striped">
       <thead>
@@ -44,10 +44,10 @@
 </div>
 <script>
   // add additional JS to initialize select below
-  var selectEl = document.getElementById('id_meal');
+  var selectEl = document.getElementById("id_meal");
   M.FormSelect.init(selectEl);
 
-  var foodEl = document.getElementById('id_food');
+  var foodEl = document.getElementById("id_food");
   M.FormSelect.init(foodEl);
 </script>
 {% endblock %}

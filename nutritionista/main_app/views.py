@@ -100,7 +100,7 @@ class FoodDelete(DeleteView):
   success_url = '/foods/'
 
 def add_meals(request, day_id):
-    form = MealForm(request.POST)
+    form = MealsForm(request.POST)
     if form.is_valid():
         new_meal = form.save(commit=False)
         new_meal.day_id = day_id

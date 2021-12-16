@@ -34,7 +34,7 @@ MEALS = (
 
 class Meals(models.Model):
     meal = models.CharField(
-        max_length=100,
+        max_length=1,
         choices=MEALS,
         default=MEALS[0][0]
     )
