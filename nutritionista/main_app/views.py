@@ -5,6 +5,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Day, Food
+from .forms import MealsForm
 
 
 
@@ -22,7 +23,10 @@ def days_index(request):
 
 def days_detail(request, day_id):
     day = Day.objects.get(id=day_id)
-    return render(request, 'days/detail.html', {'day': day})
+    meals_form = MealsForm()
+    return render(request, 'days/detail.html', {
+        'day': day, 'meals_form': meals_form
+        })
 
 class DayCreate(CreateView):
     model = Day
@@ -94,3 +98,11 @@ class FoodUpdate(UpdateView):
 class FoodDelete(DeleteView):
   model = Food
   success_url = '/foods/'
+
+def add_meals(request, day_id):
+    form = MealForm(request.POST)
+    if form.is_valid():
+        new_meal = form.save(commit=False)
+        new_meal.day_id = day_id
+        new_meal.save()
+    return redirect('detail', day_id=day_id)
