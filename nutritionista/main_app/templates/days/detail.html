@@ -1,8 +1,8 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>Day Details</h1>
+<h1 class="title">Day Details</h1>
 <div class="card">
-  <div class="card-content">
+  <div class="card-content" id="dayBg">
     <span class="card-title">{{ day.date}}</span>
     <div class="card-action">
       <a href="{% url 'days_update' day.id %}">Edit</a>

@@ -2,6 +2,8 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-color: rgb(214, 208, 205);
+    font-family: 'Hind', sans-serif;;
   }
   
   main {
@@ -13,4 +15,81 @@ body {
     text-align: right;
   }
 
+.about, .welcome {
+    opacity: 0.9 ;
+    background-image: url('https://i.imgur.com/JuaaqKBl.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10vh;
+    min-height: 50vh;
+    color: rgb(255, 244, 225);
+    border-radius: 25px;
+    
+    
+}
+.about h1, h4 {
+    margin: 50px;
+}
 
+.welcome h1, h4 {
+    margin: 50px;
+}
+
+.card {
+    border-radius: 10px;
+
+}
+.title {
+    font-family: 'Hind', sans-serif;
+    font-weight: bold;
+}
+
+#foodCard {
+    background-image: url('https://i.imgur.com/ZuvxzA1.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: rgb(255, 244, 225);
+ 
+}
+#dayBg {
+    background-image: url('https://i.imgur.com/TnQrHZo.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: rgb(255, 244, 225);
+    border-radius: 10px;
+    
+}
+#logoIcon {
+    margin-left: 190px;
+    font-size: 35px;
+}
+
+@media only screen and (max-width: 700px) {
+    .about h1 {
+        font-size: 30px;
+    }  
+    .about h4 { 
+        font-size: 25px;
+    }
+    .welcome h1 {
+        font-size: 30px;
+    }  
+    .welcome h4 { 
+        font-size: 25px;
+    }
+    .about, .welcome {
+        margin-top: 20vh;
+    }
+    .title {
+        text-align: center;
+        margin-top: 20vh;
+        font-size: 40px;
+    }
+    
+    
+} 
