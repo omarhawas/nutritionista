@@ -6,6 +6,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Day, Food
 from .forms import MealsForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Sum
 
 
 
@@ -22,11 +24,12 @@ def days_index(request):
 def days_detail(request, day_id):
     day = Day.objects.get(id=day_id)
     meals_form = MealsForm()
+    total = day.meals_set.all().aggregate(Sum('calories'))['calories__sum']
     return render(request, 'days/detail.html', {
-        'day': day, 'meals_form': meals_form
+        'day': day, 'meals_form': meals_form, 'total': total
         })
 
-class DayCreate(CreateView):
+class DayCreate(LoginRequiredMixin, CreateView):
     model = Day
     fields = ['date']
 
@@ -34,11 +37,11 @@ class DayCreate(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class DayUpdate(UpdateView):
+class DayUpdate(LoginRequiredMixin, UpdateView):
     model = Day
     fields = '__all__'
 
-class DayDelete(DeleteView):
+class DayDelete(LoginRequiredMixin, DeleteView):
     model = Day
     success_url = '/days/'
 
