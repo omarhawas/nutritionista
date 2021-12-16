@@ -2,8 +2,6 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
 
-
-from django.contrib.auth.models import User
 # Create your models here.
 class Day(models.Model):
     date = models.DateField('date')
@@ -36,7 +34,7 @@ MEALS = (
 
 class Meals(models.Model):
     meal = models.CharField(
-        max_length=1,
+        max_length=100,
         choices=MEALS,
         default=MEALS[0][0]
     )
