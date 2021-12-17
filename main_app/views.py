@@ -18,8 +18,8 @@ def about(request):
     return render(request, 'about.html')
 
 def days_index(request):
-    days = Day.objects.all()
-    return render(request, 'days/index.html', {'days': days }) 
+    days = Day.objects.filter(user=request.user)
+    return render(request, 'days/index.html', {'days': days })
 
 def days_detail(request, day_id):
     day = Day.objects.get(id=day_id)
